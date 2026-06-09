@@ -12,8 +12,6 @@ import { ResponseTransformInterceptor } from './common/interceptors/response-tra
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
-    // Delega el logging a Pino desde el inicio,
-    // incluyendo los logs del bootstrap
     bufferLogs: true,
   });
 
@@ -111,37 +109,3 @@ async function bootstrap() {
 }
 
 bootstrap();
-
-
-# ── App ────────────────────────────────────────────────────
-NODE_ENV=development
-PORT=3000
-
-# ── Supabase ───────────────────────────────────────────────
-SUPABASE_URL=https://xxxx.supabase.co
-SUPABASE_ANON_KEY=eyJ...
-SUPABASE_SERVICE_ROLE_KEY=eyJ...   # solo en backend, nunca en cliente
-
-# ── Redis (Upstash — serverless, compatible con Render) ────
-UPSTASH_REDIS_URL=rediss://...
-UPSTASH_REDIS_TOKEN=...
-
-# ── Pagos ──────────────────────────────────────────────────
-STRIPE_SECRET_KEY=sk_...
-STRIPE_WEBHOOK_SECRET=whsec_...
-MERCADOPAGO_ACCESS_TOKEN=...
-
-# ── Comunicaciones ─────────────────────────────────────────
-SENDGRID_API_KEY=SG....
-TWILIO_ACCOUNT_SID=AC...
-TWILIO_AUTH_TOKEN=...
-WHATSAPP_API_KEY=...
-
-# ── Notificaciones push ─────────────────────────────────────
-FIREBASE_PROJECT_ID=...
-FIREBASE_PRIVATE_KEY=...
-FIREBASE_CLIENT_EMAIL=...
-
-# ── Microservicio IA (Render) ───────────────────────────────
-AI_SERVICE_URL=https://mango-ai.onrender.com
-AI_SERVICE_SECRET=...
