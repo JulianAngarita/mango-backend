@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    /* ── Target & módulos ───────────────────────────────────────────────────── */
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "lib": ["ES2022"],
+
+    /* ── Paths ──────────────────────────────────────────────────────────────── */
+    "rootDir": "src",
+    "outDir": "dist",
+    "baseUrl": ".",
+
+    /* ── Decoradores (requerido por NestJS) ─────────────────────────────────── */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    /* ── Imports ────────────────────────────────────────────────────────────── */
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+
+    /* ── Strictness ─────────────────────────────────────────────────────────── */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* ── Output ─────────────────────────────────────────────────────────────── */
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "incremental": true,
+    "skipLibCheck": true,
+
+    /* ── Aliases de paths ───────────────────────────────────────────────────── */
+    "paths": {
+      "@common/*":         ["src/common/*"],
+      "@config/*":         ["src/config/*"],
+      "@supabase/*":       ["src/supabase/*"],
+      "@modules/*":        ["src/modules/*"],
+      "@infrastructure/*": ["src/infrastructure/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "test", "**/*.spec.ts"]
+}

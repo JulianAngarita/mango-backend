@@ -1,0 +1,46 @@
+# ── Dependencias ────────────────────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+
+# ── Build ────────────────────────────────────────────────────
+dist/
+build/
+
+# ── Entorno ──────────────────────────────────────────────────
+.env
+.env.local
+.env.development
+.env.staging
+.env.production
+!.env.example
+
+# ── Logs ────────────────────────────────────────────────────
+logs/
+*.log
+npm-debug.log*
+pino-*.log
+
+# ── Tests & cobertura ────────────────────────────────────────
+coverage/
+.nyc_output/
+
+# ── Supabase local ───────────────────────────────────────────
+supabase/.branches/
+supabase/.temp/
+
+# ── Editor ───────────────────────────────────────────────────
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# ── TypeScript ───────────────────────────────────────────────
+*.tsbuildinfo
+
+# ── Misc ─────────────────────────────────────────────────────
+.cache/
+tmp/
