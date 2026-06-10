@@ -7,7 +7,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { APP_GUARD } from '@nestjs/core';
 import { LoggerModule } from 'nestjs-pino';
-import { createClient } from 'ioredis';
+import createClient from 'ioredis';
 
 import { appConfig } from './config/app.config';
 import { supabaseConfig } from './config/supabase.config';
@@ -97,7 +97,7 @@ import { ReportsModule } from './modules/reports/reports.module';
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
         store: 'ioredis',
-        redisInstance: createClient(config.get<string>('redis.url')!),
+        redisInstance: new createClient(config.get<string>('redis.url')!),
         ttl: 300,
       }),
     }),
