@@ -61,9 +61,14 @@ export interface Database {
                 Row: {
                     id: string;
                     email: string;
-                    full_name: string | null;
+                    email_hash: string | null;     // SHA-256 del email para búsquedas seguras
+                    full_name: string | null;      // cifrado AES-256-GCM
                     avatar_url: string | null;
-                    bio: string | null;
+                    bio: string | null;            // cifrado AES-256-GCM
+                    phone: string | null;          // cifrado AES-256-GCM
+                    address: string | null;        // cifrado AES-256-GCM
+                    birth_date: string | null;     // cifrado AES-256-GCM
+                    fcm_token: string | null;
                     plan: UserPlan;
                     role: UserRole;
                     xp_total: number;
@@ -75,10 +80,23 @@ export interface Database {
                     created_at: string;
                     updated_at: string;
                 };
-                Insert: Omit<Database['public']['Tables']['profiles']['Row'],
-                    'xp_total' | 'level' | 'current_streak' | 'longest_streak' |
-                    'onboarding_completed' | 'plan' | 'role' | 'created_at' | 'updated_at'
-                >;
+                // Insert explícito (no Omit) para que TypeScript conozca
+                // exactamente qué campos acepta — evita el error 'never'
+                Insert: {
+                    id: string;
+                    email: string;
+                    email_hash?: string | null;
+                    full_name?: string | null;
+                    avatar_url?: string | null;
+                    bio?: string | null;
+                    phone?: string | null;
+                    address?: string | null;
+                    birth_date?: string | null;
+                    fcm_token?: string | null;
+                    plan?: UserPlan;
+                    role?: UserRole;
+                    gym_id?: string | null;
+                };
                 Update: Partial<Database['public']['Tables']['profiles']['Insert']>;
             };
 
